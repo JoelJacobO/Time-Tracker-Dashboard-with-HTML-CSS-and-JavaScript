@@ -3,8 +3,6 @@ xhr.open("GET", "./data.json");
 xhr.onreadystatechange = function () {
   if (this.readyState === 4 && this.status === 200) {
     const data = JSON.parse(this.responseText);
-    console.log(data);
-
     const html = `
      <article class="card card__work">
             <span class="card__icon"
@@ -16,8 +14,10 @@ xhr.onreadystatechange = function () {
                 <img src="./images/icon-ellipsis.svg" alt="" />
               </div>
               <div class="card__time">
-                <h2>${data[0].timeframes.daily.current}hrs</h2>
-                <p>Yesterday - ${data[0].timeframes.daily.previous}hrs</p>
+                <h2>${hourStrs(data[0].timeframes.daily.current)}</h2>
+                <p>Yesterday - ${hourStrs(
+                  data[0].timeframes.daily.previous
+                )}</p>
               </div>
             </div>
           </article>
@@ -31,8 +31,10 @@ xhr.onreadystatechange = function () {
                 <img src="./images/icon-ellipsis.svg" alt="" />
               </div>
               <div class="card__time">
-               <h2>${data[1].timeframes.daily.current}hrs</h2>
-                <p>Yesterday - ${data[1].timeframes.daily.previous}hrs</p>
+                <h2>${hourStrs(data[1].timeframes.daily.current)}</h2>
+                <p>Yesterday - ${hourStrs(
+                  data[1].timeframes.daily.previous
+                )}</p>
               </div>
             </div>
           </article>
@@ -46,8 +48,10 @@ xhr.onreadystatechange = function () {
                 <img src="./images/icon-ellipsis.svg" alt="" />
               </div>
               <div class="card__time">
-               <h2>${data[2].timeframes.daily.current}hrs</h2>
-                <p>Yesterday - ${data[2].timeframes.daily.previous}hrs</p>
+               <h2>${hourStrs(data[2].timeframes.daily.current)}</h2>
+                <p>Yesterday - ${hourStrs(
+                  data[2].timeframes.daily.previous
+                )}</p>
               </div>
             </div>
           </article>
@@ -61,8 +65,10 @@ xhr.onreadystatechange = function () {
                 <img src="./images/icon-ellipsis.svg" alt="" />
               </div>
               <div class="card__time">
-                 <h2>${data[3].timeframes.daily.current}hrs</h2>
-                <p>Yesterday - ${data[3].timeframes.daily.previous}hrs</p>
+                  <h2>${hourStrs(data[3].timeframes.daily.current)}</h2>
+                <p>Yesterday - ${hourStrs(
+                  data[3].timeframes.daily.previous
+                )}</p>
               </div>
             </div>
           </article>
@@ -77,8 +83,10 @@ xhr.onreadystatechange = function () {
                 <img src="./images/icon-ellipsis.svg" alt="" />
               </div>
               <div class="card__time">
-               <h2>${data[4].timeframes.daily.current}hrs</h2>
-                <p>Yesterday - ${data[4].timeframes.daily.previous}hrs</p>
+                <h2>${hourStrs(data[4].timeframes.daily.current)}</h2>
+                <p>Yesterday - ${hourStrs(
+                  data[4].timeframes.daily.previous
+                )}</p>
               </div>
             </div>
           </article>
@@ -92,8 +100,10 @@ xhr.onreadystatechange = function () {
                 <img src="./images/icon-ellipsis.svg" alt="" />
               </div>
               <div class="card__time">
-                <h2>${data[5].timeframes.daily.current}hrs</h2>
-                <p>Yesterday - ${data[5].timeframes.daily.previous}hrs</p>
+                <h2>${hourStrs(data[5].timeframes.daily.current)}</h2>
+                <p>Yesterday - ${hourStrs(
+                  data[5].timeframes.daily.previous
+                )}</p>
               </div>
             </div>
           </article>
@@ -105,3 +115,8 @@ xhr.onreadystatechange = function () {
 };
 
 xhr.send();
+
+function hourStrs(num) {
+  const hourStr = num <= 1 ? `${num}hr` : `${num}hrs`;
+  return hourStr;
+}

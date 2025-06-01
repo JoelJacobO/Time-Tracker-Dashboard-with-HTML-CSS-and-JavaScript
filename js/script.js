@@ -16,8 +16,10 @@ xhr.onreadystatechange = function () {
                 <img src="./images/icon-ellipsis.svg" alt="" />
               </div>
               <div class="card__time">
-                <h2>${data[0].timeframes.weekly.current}hrs</h2>
-                <p>Last week - ${data[0].timeframes.weekly.previous}hrs</p>
+                <h2>${hourStrs(data[0].timeframes.weekly.current)}</h2>
+                <p>Last week - ${hourStrs(
+                  data[0].timeframes.weekly.previous
+                )}</p>
               </div>
             </div>
           </article>
@@ -31,8 +33,10 @@ xhr.onreadystatechange = function () {
                 <img src="./images/icon-ellipsis.svg" alt="" />
               </div>
               <div class="card__time">
-               <h2>${data[1].timeframes.weekly.current}hrs</h2>
-                <p>Last week - ${data[1].timeframes.weekly.previous}hrs</p>
+               <h2>${hourStrs(data[1].timeframes.weekly.current)}</h2>
+                <p>Last week - ${hourStrs(
+                  data[1].timeframes.weekly.previous
+                )}</p>
               </div>
             </div>
           </article>
@@ -46,8 +50,10 @@ xhr.onreadystatechange = function () {
                 <img src="./images/icon-ellipsis.svg" alt="" />
               </div>
               <div class="card__time">
-               <h2>${data[2].timeframes.weekly.current}hrs</h2>
-                <p>Last week - ${data[2].timeframes.weekly.previous}hrs</p>
+               <h2>${hourStrs(data[2].timeframes.weekly.current)}</h2>
+                <p>Last week - ${hourStrs(
+                  data[2].timeframes.weekly.previous
+                )}</p>
               </div>
             </div>
           </article>
@@ -61,8 +67,10 @@ xhr.onreadystatechange = function () {
                 <img src="./images/icon-ellipsis.svg" alt="" />
               </div>
               <div class="card__time">
-                 <h2>${data[3].timeframes.weekly.current}hrs</h2>
-                <p>Last week - ${data[3].timeframes.weekly.previous}hrs</p>
+                  <h2>${hourStrs(data[3].timeframes.weekly.current)}</h2>
+                <p>Last week - ${hourStrs(
+                  data[3].timeframes.weekly.previous
+                )}</p>
               </div>
             </div>
           </article>
@@ -77,8 +85,10 @@ xhr.onreadystatechange = function () {
                 <img src="./images/icon-ellipsis.svg" alt="" />
               </div>
               <div class="card__time">
-               <h2>${data[4].timeframes.weekly.current}hrs</h2>
-                <p>Last week - ${data[4].timeframes.weekly.previous}hrs</p>
+                <h2>${hourStrs(data[4].timeframes.weekly.current)}</h2>
+                <p>Last week - ${hourStrs(
+                  data[4].timeframes.weekly.previous
+                )}</p>
               </div>
             </div>
           </article>
@@ -92,8 +102,10 @@ xhr.onreadystatechange = function () {
                 <img src="./images/icon-ellipsis.svg" alt="" />
               </div>
               <div class="card__time">
-                <h2>${data[5].timeframes.weekly.current}hrs</h2>
-                <p>Last week - ${data[5].timeframes.weekly.previous}hrs</p>
+                 <h2>${hourStrs(data[5].timeframes.weekly.current)}</h2>
+                <p>Last week - ${hourStrs(
+                  data[5].timeframes.weekly.previous
+                )}</p>
               </div>
             </div>
           </article>
@@ -105,3 +117,7 @@ xhr.onreadystatechange = function () {
 };
 
 xhr.send();
+function hourStrs(num) {
+  const hourStr = num <= 1 ? `${num}hr` : `${num}hrs`;
+  return hourStr;
+}
